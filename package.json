@@ -1,0 +1,27 @@
+{
+    "devDependencies": {
+        "@types/node": "^24.5.2",
+        "prettier": "^3.6.2",
+        "prettier-plugin-solidity": "^2.1.0",
+        "ts-node": "^10.9.2",
+        "typechain": "^8.3.2"
+    },
+    "dependencies": {
+        "@chainlink/contracts": "^1.4.0",
+        "@typechain/ethers-v6": "^0.4.2",
+        "@types/fs-extra": "^11.0.4",
+        "dotenv": "^17.2.2",
+        "ethers": "^6.15.0",
+        "fs-extra": "^11.3.2",
+        "solc": "0.8.19",
+        "typescript": "^5.9.2"
+    },
+    "scripts": {
+        "compile": "solcjs --bin --abi --include-path node_modules/ --base-path . -o build contracts/*.sol",
+        "typechain": "typechain --target ethers-v6 --out-dir typechain-types './build/*.abi'",
+        "deploy": "ts-node scripts/deploy.ts",
+        "fund": "ts-node scripts/fund.ts",
+        "withdraw": "ts-node scripts/withdraw.ts",
+        "get-info": "ts-node scripts/get-info.ts"
+    }
+}
